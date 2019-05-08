@@ -1,9 +1,9 @@
-namespace CarShared.WebUI.Migrations
+namespace CarShared.DAL.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class initial : DbMigration
+    public partial class v1 : DbMigration
     {
         public override void Up()
         {

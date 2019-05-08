@@ -13,8 +13,8 @@ namespace CarShared.BLL.TripUC
     {
         public void AddTrip(TripBTO bto)
         {
-            tripRepo.Insert(bto.TripBTOTOTripDTO());
-
+            repo.Insert(bto.TripBTOTOTripDTO());
+            repo.Save();
         }
 
 

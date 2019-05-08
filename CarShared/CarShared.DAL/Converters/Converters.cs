@@ -14,7 +14,7 @@ namespace CarShared.DAL.Converters
         {
             return new Trip
             {
-                IdTrip = dto.IdTrip,
+                TripId = dto.IdTrip,
                 ArrivalCity = dto.arrivalCity,
                 DepartureCity = dto.departureCity,
                 Time = dto.time,
@@ -29,7 +29,7 @@ namespace CarShared.DAL.Converters
         {
             return new TripDTO
             {
-                IdTrip = trip.IdTrip,
+                IdTrip = trip.TripId,
                 arrivalCity = trip.ArrivalCity,
                 departureCity = trip.DepartureCity,
                 time = trip.Time,

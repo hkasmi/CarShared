@@ -6,6 +6,8 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using CarShared.WebUI.Models;
+using CarShared.DAL;
+using CarShared.DAL.Entities;
 
 namespace CarShared.WebUI
 {

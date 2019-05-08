@@ -11,6 +11,8 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using CarShared.WebUI.Models;
+using CarShared.DAL.Entities;
+using CarShared.DAL;
 
 namespace CarShared.WebUI
 {

@@ -1,5 +1,6 @@
 ﻿using CarShared.Common.DTO;
 using CarShared.Common.Interfaces;
+using CarShared.DAL;
 using CarShared.DAL.Repositories;
 using System;
 using System.Collections.Generic;
@@ -11,11 +12,12 @@ namespace CarShared.BLL.TripUC
 {
     public partial class TripServices
     {
-        public readonly TripRespository tripRepo;
-
+        ApplicationDbContext db;
+        TripRespository repo;
         public TripServices()
         {
-            tripRepo = new TripRespository();
+            db = new ApplicationDbContext();
+            repo = new TripRespository(db);
         }
     }
 }

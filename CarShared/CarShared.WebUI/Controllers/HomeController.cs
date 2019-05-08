@@ -23,6 +23,7 @@ namespace CarShared.WebUI.Controllers
         [HttpPost]
         public ActionResult AddTrip(TripBTO bto)
         {
+            bto.time = DateTime.Now;
             tripservice.AddTrip(bto);
             return RedirectToAction("GetAllTrip");
         }

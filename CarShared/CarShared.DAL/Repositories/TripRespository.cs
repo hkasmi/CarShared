@@ -12,67 +12,75 @@ namespace CarShared.DAL.Repositories
 {
     public class TripRespository : IRepository<TripDTO>
     {
-        private List<Trip> dbTrips;
+        private ApplicationDbContext CarSharedDB;
 
-        public TripRespository()
+        public TripRespository(ApplicationDbContext dbContext)
         {
-            if (dbTrips == null)
-            {
-                InitializedbTrips();
-            }
+            CarSharedDB = dbContext;
         }
+        
+        
+        //private List<Trip> dbTrips;
 
-        private void InitializedbTrips()
-        {
-            dbTrips = new List<Trip>
-            { new Trip
-            {
-                ArrivalCity="Bruxelles",
-                DepartureCity="Paris",
-                Time=new DateTime(2019,12,24,10,50,00),
-                Price=10,
-                SpotNumber=2,
-                Description="rendez vous en face à la sortie de la gare"
-            },
+        //public TripRespository()
+        //{
+        //    if (dbTrips == null)
+        //    {
+        //        InitializedbTrips();
+        //    }
+        //}
 
-            new Trip
-            {
-                ArrivalCity="Bruxelles",
-                DepartureCity="Paris",
-                Time=new DateTime(2019,08,12,12,30,00),
-                Price=10,
-                SpotNumber=2,
-                Description="rendez vous en face à la sortie de la gare"
-            },
+        //private void InitializedbTrips()
+        //{
+        //    dbTrips = new List<Trip>
+        //    { new Trip
+        //    {
+        //        ArrivalCity="Bruxelles",
+        //        DepartureCity="Paris",
+        //        Time=new DateTime(2019,12,24,10,50,00),
+        //        Price=10,
+        //        SpotNumber=2,
+        //        Description="rendez vous en face à la sortie de la gare"
+        //    },
 
-            new Trip
-            {
-                ArrivalCity="Bruxelles",
-                DepartureCity="Paris",
-                Time=new DateTime(2020,01,06,10,50,00),
-                Price=10,
-                SpotNumber=2,
-                Description="rendez vous en face à la sortie de la gare"
-            },
+        //    new Trip
+        //    {
+        //        ArrivalCity="Bruxelles",
+        //        DepartureCity="Paris",
+        //        Time=new DateTime(2019,08,12,12,30,00),
+        //        Price=10,
+        //        SpotNumber=2,
+        //        Description="rendez vous en face à la sortie de la gare"
+        //    },
 
-            new Trip
-            {
-                ArrivalCity="Bruxelles",
-                DepartureCity="Paris",
-                Time=new DateTime(2019,10,02,15,20,00),
-                Price=10,
-                SpotNumber=2,
-                Description="rendez vous en face à la sortie de la gare"
-            }
+        //    new Trip
+        //    {
+        //        ArrivalCity="Bruxelles",
+        //        DepartureCity="Paris",
+        //        Time=new DateTime(2020,01,06,10,50,00),
+        //        Price=10,
+        //        SpotNumber=2,
+        //        Description="rendez vous en face à la sortie de la gare"
+        //    },
 
-            };
-        }
+        //    new Trip
+        //    {
+        //        ArrivalCity="Bruxelles",
+        //        DepartureCity="Paris",
+        //        Time=new DateTime(2019,10,02,15,20,00),
+        //        Price=10,
+        //        SpotNumber=2,
+        //        Description="rendez vous en face à la sortie de la gare"
+        //    }
+
+        //    };
+        //}
 
         public List<TripDTO> GetAll()
         {
             List<TripDTO> tripDto = new List<TripDTO>();
 
-            foreach (var item in dbTrips.ToList())
+            foreach (var item in CarSharedDB.Trips.ToList())
             {
                 tripDto.Add(item.TripTOTripDTO());
             }
@@ -81,7 +89,7 @@ namespace CarShared.DAL.Repositories
 
         public void Insert(TripDTO entity)
         {
-            dbTrips.Add(entity.TripDTOTOTrip());
+            CarSharedDB.Trips.Add(entity.TripDTOTOTrip());
         }
 
         public void Update(TripDTO entity)
@@ -96,7 +104,7 @@ namespace CarShared.DAL.Repositories
 
         public void Save()
         {
-            throw new NotImplementedException();
+            CarSharedDB.SaveChanges();
         }
 
         IQueryable<TripDTO> IRepository<TripDTO>.GetAll()

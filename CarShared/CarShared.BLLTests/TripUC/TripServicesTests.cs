@@ -17,11 +17,11 @@ namespace CarShared.BLL.TripUC.Tests
         {
             var Tripservice = new TripServices();
 
-            var count = Tripservice.tripRepo.GetAll().Count;
+            var count = Tripservice.GetAllTrips().Count;
 
-            Tripservice.AddTrip(new Shared.BTO.TripBTO { arrivalCity = "bxl", departureCity = "paris" });
+            Tripservice.AddTrip(new Shared.BTO.TripBTO { arrivalCity = "bxl", departureCity = "paris",time= DateTime.Now, spotNumber=2, price =10 ,description="Testttttttt" });
 
-            var count2 = Tripservice.tripRepo.GetAll().Count;
+            var count2 = Tripservice.GetAllTrips().Count;
 
             Assert.AreEqual(count + 1, count2);
         }
@@ -31,10 +31,10 @@ namespace CarShared.BLL.TripUC.Tests
         {
             var Tripservice = new TripServices();
 
-            var count = Tripservice.tripRepo.GetAll().Count;
+            var count = Tripservice.GetAllTrips().Count;
 
 
-            Assert.AreEqual(count,4);
+            Assert.AreEqual(count,1);
         }
     }
 }
