@@ -23,7 +23,7 @@ namespace CarShared.WebUI.Controllers
         {
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
@@ -35,9 +35,9 @@ namespace CarShared.WebUI.Controllers
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -121,7 +121,7 @@ namespace CarShared.WebUI.Controllers
             // If a user enters incorrect codes for a specified amount of time then the user account 
             // will be locked out for a specified amount of time. 
             // You can configure the account lockout settings in IdentityConfig
-            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent:  model.RememberMe, rememberBrowser: model.RememberBrowser);
+            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent: model.RememberMe, rememberBrowser: model.RememberBrowser);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -143,6 +143,52 @@ namespace CarShared.WebUI.Controllers
             return View();
         }
 
+        public async Task<ActionResult> UpdateProfil(string userid)
+        {
+            var user = await UserManager.FindByIdAsync(userid);
+            RegisterViewModel userconnect = new RegisterViewModel
+            {
+                Adress = user.Adress,
+                DateOfBirth = user.DateOfBirth,
+                Description = user.Description,
+                Email = user.Email,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                PhoneNumber = user.PhoneNumber
+            };
+            return View(userconnect);
+            //return View(user);
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> UpdateProfil(RegisterViewModel model)
+        {
+
+            var user = new ApplicationUser {
+                UserName = model.Email,
+                Email = model.Email,
+                PhoneNumber = model.PhoneNumber,
+                DateOfBirth = model.DateOfBirth,
+                FirstName = model.FirstName,
+                LastName = model.LastName,
+                Adress = model.Adress,
+                Description = model.Description,
+                Gender = (int)model.Gender,
+            };
+            var result = await UserManager.UpdateAsync(user);
+            if (result.Succeeded)
+            {
+                string t = "ko";
+
+            }
+
+
+            // If we got this far, something failed, redisplay form
+            return View(model);
+        }
+
         //
         // POST: /Account/Register
         [HttpPost]
@@ -152,12 +198,12 @@ namespace CarShared.WebUI.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, PhoneNumber = model.PhoneNumber };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, PhoneNumber = model.PhoneNumber, DateOfBirth = model.DateOfBirth, FirstName = model.FirstName, LastName = model.LastName, Adress = model.Adress, Description = model.Description, Gender = (int)model.Gender };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);

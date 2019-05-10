@@ -57,6 +57,7 @@
     <Compile Include="Converters\Converters.cs" />
     <Compile Include="ApplicationDbContext.cs" />
     <Compile Include="Entities\ApplicationUser.cs" />
+    <Compile Include="Entities\Gender.cs" />
     <Compile Include="Entities\Trip.cs" />
     <Compile Include="Migrations\201905080933128_v1.cs" />
     <Compile Include="Migrations\201905080933128_v1.Designer.cs">
@@ -65,6 +66,22 @@
     <Compile Include="Migrations\201905080936510_v2.cs" />
     <Compile Include="Migrations\201905080936510_v2.Designer.cs">
       <DependentUpon>201905080936510_v2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905090817180_v21.cs" />
+    <Compile Include="Migrations\201905090817180_v21.Designer.cs">
+      <DependentUpon>201905090817180_v21.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905090849189_v3.cs" />
+    <Compile Include="Migrations\201905090849189_v3.Designer.cs">
+      <DependentUpon>201905090849189_v3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905091312482_v4.cs" />
+    <Compile Include="Migrations\201905091312482_v4.Designer.cs">
+      <DependentUpon>201905091312482_v4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905100927041_v5.cs" />
+    <Compile Include="Migrations\201905100927041_v5.Designer.cs">
+      <DependentUpon>201905100927041_v5.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -86,6 +103,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201905080936510_v2.resx">
       <DependentUpon>201905080936510_v2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905090817180_v21.resx">
+      <DependentUpon>201905090817180_v21.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905090849189_v3.resx">
+      <DependentUpon>201905090849189_v3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905091312482_v4.resx">
+      <DependentUpon>201905091312482_v4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905100927041_v5.resx">
+      <DependentUpon>201905100927041_v5.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

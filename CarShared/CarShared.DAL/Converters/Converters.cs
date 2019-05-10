@@ -14,11 +14,11 @@ namespace CarShared.DAL.Converters
         {
             return new Trip
             {
-                TripId = dto.IdTrip,
+                TripId = dto.tripId,
                 ArrivalCity = dto.arrivalCity,
                 DepartureCity = dto.departureCity,
-                Time = dto.time,
-                SpotNumber = dto.spotNumber,
+                TripDate = dto.tripDate,
+                NumberOfSpots = dto.NumberOfSpots,
                 Price = dto.price,
                 Description = dto.description
 
@@ -29,12 +29,12 @@ namespace CarShared.DAL.Converters
         {
             return new TripDTO
             {
-                IdTrip = trip.TripId,
+                tripId = trip.TripId,
                 arrivalCity = trip.ArrivalCity,
                 departureCity = trip.DepartureCity,
-                time = trip.Time,
+                tripDate = trip.TripDate,
                 price = trip.Price,
-                spotNumber = trip.SpotNumber,
+                NumberOfSpots = trip.NumberOfSpots,
                 description = trip.Description
 
             };

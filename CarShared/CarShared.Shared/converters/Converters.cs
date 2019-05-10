@@ -14,11 +14,11 @@ namespace CarShared.Common.converters
         {
             return new TripDTO
             {
-                IdTrip = bto.IdTrip,
+                tripId = bto.tripId,
                 arrivalCity = bto.arrivalCity,
                 departureCity = bto.departureCity,
-                time = bto.time,
-                spotNumber = bto.spotNumber,
+                tripDate = bto.TripDate,
+                NumberOfSpots = bto.NumberOfSpots,
                 price = bto.price,
                 description = bto.description
 
@@ -29,12 +29,12 @@ namespace CarShared.Common.converters
         {
             return new TripBTO
             {
-                IdTrip = dto.IdTrip,
+                tripId = dto.tripId,
                 arrivalCity = dto.arrivalCity,
                 departureCity = dto.departureCity,
-                time = dto.time,
+                TripDate = dto.tripDate,
                 price = dto.price,
-                spotNumber = dto.spotNumber,
+                NumberOfSpots = dto.NumberOfSpots,
                 description = dto.description
 
             };

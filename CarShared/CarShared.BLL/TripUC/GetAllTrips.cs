@@ -23,7 +23,7 @@ namespace CarShared.BLL.TripUC
                 try
                 {
                     //add date to article domain
-                    TripDomain tripDom = new TripDomain(item.IdTrip, item.departureCity, item.arrivalCity, item.spotNumber, item.price);
+                    TripDomain tripDom = new TripDomain(item.tripId, item.departureCity, item.arrivalCity, item.NumberOfSpots, item.price);
                 }
                 catch (Exception e)
                 {

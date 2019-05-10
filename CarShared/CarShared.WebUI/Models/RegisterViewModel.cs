@@ -1,9 +1,24 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using CarShared.DAL.Entities;
+using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CarShared.WebUI.Models
 {
     public class RegisterViewModel
     {
+        [Required(ErrorMessage = "First Name is a Required field.")]
+        [DataType(DataType.Text)]
+        [Display(Name = "FirstName")]
+        [MaxLength(80)]
+        public string FirstName { get; set; }
+
+        [Required(ErrorMessage = "Last Name is a Required field.")]
+        [DataType(DataType.Text)]
+        [Display(Name = "LastName")]
+        [MaxLength(80)]
+        public string LastName { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
@@ -20,11 +35,19 @@ namespace CarShared.WebUI.Models
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
 
-
+        [Required(ErrorMessage = "Your Gender is a Required.")]
+        [Display(Name = "Gender")]
+        public Gender Gender { get; set; }
         [Required]
         [Phone]
         [Display(Name = "Phone Number")]
         public string PhoneNumber { get; set; }
+
+        public string Adress { get; set; }
+        [Required(ErrorMessage = "Your Age is a Required .")]
+        [DataType(DataType.DateTime)]
+        public DateTime DateOfBirth { get; set; }
+        public string Description { get; set; }
 
     }
 }

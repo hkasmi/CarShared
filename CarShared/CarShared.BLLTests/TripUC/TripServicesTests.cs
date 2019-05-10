@@ -19,7 +19,7 @@ namespace CarShared.BLL.TripUC.Tests
 
             var count = Tripservice.GetAllTrips().Count;
 
-            Tripservice.AddTrip(new Shared.BTO.TripBTO { arrivalCity = "bxl", departureCity = "paris",time= DateTime.Now, spotNumber=2, price =10 ,description="Testttttttt" });
+            Tripservice.AddTrip(new Shared.BTO.TripBTO { arrivalCity = "bxl", departureCity = "paris",TripDate= DateTime.Now, NumberOfSpots=2, price =10 ,description="Testttttttt" });
 
             var count2 = Tripservice.GetAllTrips().Count;
 
@@ -34,7 +34,7 @@ namespace CarShared.BLL.TripUC.Tests
             var count = Tripservice.GetAllTrips().Count;
 
 
-            Assert.AreEqual(count,1);
+            Assert.AreEqual(count,9);
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
@@ -16,8 +18,26 @@ namespace CarShared.DAL.Entities
             // Add custom user claims here
             return userIdentity;
         }
-
+        [Required(ErrorMessage = "First Name is a Required field.")]
+        [DataType(DataType.Text)]
+        [Display(Name = "FirstName")]
+        [MaxLength(80)]
         public string FirstName { get; set; }
+        [Required(ErrorMessage = "Last Name is a Required field.")]
+        [DataType(DataType.Text)]
+        [Display(Name = "LastName")]
+        [MaxLength(80)]
+        public string LastName { get; set; }
+        [Required(ErrorMessage = "Your Gender is a Required.")]
+        [Display(Name = "Gender")]
+        public int Gender { get; set; }
+        public string Adress { get; set; }
+        [Required(ErrorMessage = "Your Age is a Required .")]
+        [DataType(DataType.DateTime)]
+        public DateTime DateOfBirth { get; set; }
+        public string Image { get; set; }
+        public string Description { get; set; }
+
 
     }
 }
