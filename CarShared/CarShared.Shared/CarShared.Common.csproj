@@ -42,9 +42,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BTO\CityBTO.cs" />
     <Compile Include="BTO\TripBTO.cs" />
-    <Compile Include="converters\Converters.cs" />
+    <Compile Include="ConvertBTODTO\TripConverters.cs" />
+    <Compile Include="ConvertBTODTO\CityConvertes.cs" />
+    <Compile Include="DTO\CityDTO.cs" />
     <Compile Include="DTO\TripDTO.cs" />
+    <Compile Include="Enums\Country.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

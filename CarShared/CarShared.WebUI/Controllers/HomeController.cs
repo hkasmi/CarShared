@@ -15,24 +15,12 @@ namespace CarShared.WebUI.Controllers
         {
             return View();
         }
-        [HttpGet]
-        public ActionResult AddTrip()
+       
+        public ActionResult UpdateProfilSucceeded()
         {
             return View();
         }
-        [HttpPost]
-        public ActionResult AddTrip(TripBTO bto)
-        {
-            bto.TripDate = DateTime.Now;
-            tripservice.AddTrip(bto);
-            return RedirectToAction("GetAllTrip");
-        }
-
-        public ActionResult GetAllTrip()
-        {
-            var model = tripservice.GetAllTrips();
-            return View(model);
-        }
+        
 
         //public ActionResult About()
         //{

@@ -5,12 +5,12 @@
 }
 
 <h2>UpdateProfil</h2>
-
+@Html.HiddenFor(model => model.userId)
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>RegisterViewModel</h4>
         <hr />

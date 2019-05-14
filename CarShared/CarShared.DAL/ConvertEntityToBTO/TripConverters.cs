@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarShared.DAL.Converters
+namespace CarShared.DAL.ConvertEntityToBTO
 {
-    public static class Converters
+    public static class TripConverters
     {
         public static Trip TripDTOTOTrip(this TripDTO dto)
         {

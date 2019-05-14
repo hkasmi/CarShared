@@ -1,4 +1,4 @@
-﻿using CarShared.Common.converters;
+﻿using CarShared.Common.ConvertBTODTO;
 using CarShared.Common.DTO;
 using CarShared.Shared.BTO;
 using System;
@@ -13,7 +13,7 @@ namespace CarShared.BLL.TripUC
     {
         public void AddTrip(TripBTO bto)
         {
-            repo.Insert(bto.TripBTOTOTripDTO());
+            repo.Add(bto.TripBTOTOTripDTO());
             repo.Save();
         }
 

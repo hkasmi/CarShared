@@ -7,6 +7,8 @@ namespace CarShared.WebUI.Models
 {
     public class RegisterViewModel
     {
+        [Key]
+        public string userId { get; set; }
         [Required(ErrorMessage = "First Name is a Required field.")]
         [DataType(DataType.Text)]
         [Display(Name = "FirstName")]

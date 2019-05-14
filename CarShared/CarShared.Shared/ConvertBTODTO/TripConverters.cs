@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarShared.Common.converters
+namespace CarShared.Common.ConvertBTODTO
 {
-    public static class Converters
+    public static class TripConverters
     {
         public static TripDTO TripBTOTOTripDTO(this TripBTO bto)
         {
@@ -34,6 +34,7 @@ namespace CarShared.Common.converters
                 departureCity = dto.departureCity,
                 TripDate = dto.tripDate,
                 price = dto.price,
+
                 NumberOfSpots = dto.NumberOfSpots,
                 description = dto.description
 

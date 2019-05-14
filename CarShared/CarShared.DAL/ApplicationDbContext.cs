@@ -17,5 +17,6 @@ namespace CarShared.DAL
         }
 
         public DbSet<Trip> Trips {get;set;}
+        public DbSet<City> Cities { get; set; }
     }
 }

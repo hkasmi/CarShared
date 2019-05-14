@@ -42,6 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CityUC\AddCity.cs" />
+    <Compile Include="CityUC\CtorCity.cs" />
     <Compile Include="Domain\TripDomain.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TripUC\AddTrip.cs" />

@@ -13,6 +13,7 @@ namespace CarShared.DAL.Entities
         [Required(ErrorMessage = "Departure City is a Required field.")]
         [DataType(DataType.Text)]
         [Display(Name = "Departure City")]
+        public string Country { get; set; }
         public string DepartureCity { get; set; }
         [Required(ErrorMessage = "Arrival City is a Required field.")]
         [DataType(DataType.Text)]

@@ -148,6 +148,7 @@ namespace CarShared.WebUI.Controllers
             var user = await UserManager.FindByIdAsync(userid);
             RegisterViewModel userconnect = new RegisterViewModel
             {
+                userId = user.Id,
                 Adress = user.Adress,
                 DateOfBirth = user.DateOfBirth,
                 Description = user.Description,
@@ -165,22 +166,22 @@ namespace CarShared.WebUI.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> UpdateProfil(RegisterViewModel model)
         {
+            var user = await UserManager.FindByIdAsync(model.userId.ToString());
 
-            var user = new ApplicationUser {
-                UserName = model.Email,
-                Email = model.Email,
-                PhoneNumber = model.PhoneNumber,
-                DateOfBirth = model.DateOfBirth,
-                FirstName = model.FirstName,
-                LastName = model.LastName,
-                Adress = model.Adress,
-                Description = model.Description,
-                Gender = (int)model.Gender,
-            };
+            user.UserName = model.Email;
+            user.Email = model.Email;
+            user.PhoneNumber = model.PhoneNumber;
+            user.DateOfBirth = model.DateOfBirth;
+            user.FirstName = model.FirstName;
+            user.LastName = model.LastName;
+            user.Adress = model.Adress;
+            user.Description = model.Description;
+            user.Gender = (int)model.Gender;
+
             var result = await UserManager.UpdateAsync(user);
             if (result.Succeeded)
             {
-                string t = "ko";
+                return RedirectToAction("UpdateProfilSucceeded", "Home");
 
             }
 

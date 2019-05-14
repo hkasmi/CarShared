@@ -1,6 +1,6 @@
 ﻿using CarShared.Common.DTO;
 using CarShared.Common.Interfaces;
-using CarShared.DAL.Converters;
+using CarShared.DAL.ConvertEntityToBTO;
 using CarShared.DAL.Entities;
 using System;
 using System.Collections.Generic;
@@ -87,7 +87,7 @@ namespace CarShared.DAL.Repositories
             return tripDto;
         }
 
-        public void Insert(TripDTO entity)
+        public void Add(TripDTO entity)
         {
             CarSharedDB.Trips.Add(entity.TripDTOTOTrip());
         }

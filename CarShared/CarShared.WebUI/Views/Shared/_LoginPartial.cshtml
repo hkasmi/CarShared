@@ -12,6 +12,9 @@
         <li>
             @Html.ActionLink("Update your Profil", "UpdateProfil", "Account", new { userid = User.Identity.GetUserId() }, null)
         </li>
+        <li>
+            @Html.ActionLink("Gérer mon site", "Index", "Admin", null, null)
+        </li>
         <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
     </ul>
     }
