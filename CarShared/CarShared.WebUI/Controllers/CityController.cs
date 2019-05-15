@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CarShared.BLL.CityUC;
+using CarShared.Shared.BTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,16 +11,23 @@ namespace CarShared.WebUI.Controllers
     [Authorize]
     public class CityController : Controller
     {
+        CityServices cityService = new CityServices();
         // GET: City
+        public ActionResult Index(string name)
+        {
+            ViewBag.message = name;
+            return View();
+        }
         public ActionResult AddCity()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult AddCity(int i)
+        public ActionResult AddCity(CityBTO city)
         {
-            return View();
+            cityService.AddCity(city);
+            return RedirectToAction("Index",new { city.Name });
         }
 
         // GET: City/Details/5
@@ -28,9 +37,10 @@ namespace CarShared.WebUI.Controllers
         }
 
         // GET: City/Create
-        public ActionResult Create()
+        public ActionResult GetAllCities()
         {
-            return View();
+            cityService.GetAllCities();
+            return View(cityService.GetAllCities());
         }
 
         // POST: City/Create

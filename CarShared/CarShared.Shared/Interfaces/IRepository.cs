@@ -8,7 +8,7 @@ namespace CarShared.Common.Interfaces
 {
     public interface IRepository<T> : IDisposable
     {
-
+        
         void Add(T entity);
         void Update(T entity);
         void Delete(T entity);

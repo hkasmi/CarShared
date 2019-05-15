@@ -15,26 +15,15 @@
         <h4>CityBTO</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="" id="dropdown09" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Trier par :</a>
-                <div class="dropdown-menu" aria-labelledby="dropdown09">
-                    @foreach (var item in Enum.GetValues(typeof(Country)))
-                    {
-                        <p class="dropdown-item">
-                            @item.ToString()
-                        </p>
-
-                    }
-                </div>
-            </li>
-        </div>
+        
          <div class="form-group">
-            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
-            </div>
+            @Html.LabelFor(model => model.Country, htmlAttributes: new { @class = "control-label col-md-2" })
+             <div class="col-md-10">
+                 @Html.DropDownList("Country",
+                     new SelectList(Enum.GetValues(typeof(Country))),
+                     "Select Country",
+                     new { @class = "form-control" })
+             </div>
         </div>
 
 
