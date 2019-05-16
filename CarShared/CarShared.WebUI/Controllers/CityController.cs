@@ -1,5 +1,8 @@
 ﻿using CarShared.BLL.CityUC;
+using CarShared.Common.Enums;
 using CarShared.Shared.BTO;
+using CarShared.Shared.DTO;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,11 +34,16 @@ namespace CarShared.WebUI.Controllers
         }
 
         // GET: City/Details/5
-        public ActionResult Details(int id)
+        public ActionResult GetCityByCountry()
         {
             return View();
         }
-
+        [HttpPost]
+        public ActionResult GetCityByCountry(Country country)
+        {
+            var cities = JsonConvert.SerializeObject(cityService.GetCitiesByCountry(country));
+            return RedirectToAction("DetailsCities", new { cities });
+        }
         // GET: City/Create
         public ActionResult GetAllCities()
         {
@@ -43,6 +51,12 @@ namespace CarShared.WebUI.Controllers
             return View(cityService.GetAllCities());
         }
 
+        public ActionResult DetailsCities(string cities)
+        {
+
+            List<CityBTO> cities2 = JsonConvert.DeserializeObject<List<CityBTO>>(cities);
+            return View(cities2);
+        }
         // POST: City/Create
         [HttpPost]
         public ActionResult Create(FormCollection collection)
@@ -60,9 +74,16 @@ namespace CarShared.WebUI.Controllers
         }
 
         // GET: City/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult EditCity(int id)
         {
-            return View();
+            CityBTO city = cityService.GetCityById(id);
+            return View(city);
+        }
+        [HttpPost]
+        public ActionResult EditCity(CityBTO city)
+        {
+            cityService.UpdateCity(city);
+            return RedirectToAction("GetCityByCountry", new { city.Country });
         }
 
         // POST: City/Edit/5
@@ -82,7 +103,7 @@ namespace CarShared.WebUI.Controllers
         }
 
         // GET: City/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult DeleteCity(int id)
         {
             return View();
         }

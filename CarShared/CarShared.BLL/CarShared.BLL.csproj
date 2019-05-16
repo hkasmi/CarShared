@@ -45,6 +45,9 @@
     <Compile Include="CityUC\AddCity.cs" />
     <Compile Include="CityUC\CtorCity.cs" />
     <Compile Include="CityUC\GetAllCities.cs" />
+    <Compile Include="CityUC\GetCitiesByCountry.cs" />
+    <Compile Include="CityUC\GetCityById.cs" />
+    <Compile Include="CityUC\UpdateCity.cs" />
     <Compile Include="Domain\CityDomain.cs" />
     <Compile Include="Domain\TripDomain.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

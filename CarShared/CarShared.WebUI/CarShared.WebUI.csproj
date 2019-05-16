@@ -262,6 +262,9 @@
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\City\AddCity.cshtml" />
     <Content Include="Views\City\Index.cshtml" />
+    <Content Include="Views\City\GetCityByCountry.cshtml" />
+    <Content Include="Views\City\DetailsCities.cshtml" />
+    <Content Include="Views\City\EditCity.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

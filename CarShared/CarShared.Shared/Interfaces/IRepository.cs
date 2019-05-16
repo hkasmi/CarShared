@@ -14,7 +14,7 @@ namespace CarShared.Common.Interfaces
         void Delete(T entity);
         void Save();
        // IQueryable<T> SearchFor(Expression<Func<T, bool>> predicate);
-        IQueryable<T> GetAll();
+        List<T> GetAll();
         T GetById(int id);
     }
 }

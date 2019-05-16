@@ -107,11 +107,7 @@ namespace CarShared.DAL.Repositories
             CarSharedDB.SaveChanges();
         }
 
-        IQueryable<TripDTO> IRepository<TripDTO>.GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
+       
         public TripDTO GetById(int id)
         {
             throw new NotImplementedException();
